@@ -9,8 +9,20 @@ import '../../../../../core/framework/utils/colors.dart';
 import '../../../../../core/framework/utils/spacings.dart';
 import '../../../shared/presentation/pages/app_wrapper.dart';
 
-class MeFragment extends StatelessWidget {
+class MeFragment extends StatefulWidget {
   const MeFragment({super.key});
+
+  @override
+  State<MeFragment> createState() => _MeFragmentState();
+}
+
+class _MeFragmentState extends State<MeFragment> {
+  bool _isChecked = false;
+
+  void toggleCheckBox() {
+    _isChecked = !_isChecked;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +158,14 @@ class MeFragment extends StatelessWidget {
                   SizedBox(
                     height: Spacings.spacing10,
                   ),
-                  Text("﹩10/month"),
+                  Text(
+                    "﹩10/month",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: Spacings.spacing24,
+                      color: AppColors.color35312D,
+                    ),
+                  ),
                   SizedBox(height: Spacings.spacing16),
                   Row(
                     children: [
@@ -207,10 +226,9 @@ class MeFragment extends StatelessWidget {
               scale: 1.2,
               child: Checkbox.adaptive(
                   activeColor: AppColors.color43B888,
-                  value: true,
+                  value: _isChecked,
                   onChanged: (val) {
-                    // ref.read(privacyAccepted.notifier).state =
-                    //     val ?? false;
+                    toggleCheckBox();
                   }),
             ),
             Expanded(

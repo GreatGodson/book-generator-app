@@ -4,6 +4,7 @@ import 'package:flutter_assessment/app/modules/shared/presentation/pages/app_wra
 import 'package:flutter_assessment/core/framework/utils/colors.dart';
 import 'package:flutter_assessment/core/framework/utils/images.dart';
 import 'package:flutter_assessment/core/framework/utils/spacings.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PurchaseFragment extends StatelessWidget {
   const PurchaseFragment({super.key});
@@ -45,25 +46,53 @@ class PurchaseFragment extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Book Title"),
+                        Text(
+                          "Book Title",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: Spacings.spacing18,
+                            color: AppColors.color35312D,
+                          ),
+                        ),
                         SizedBox(
                           height: Spacings.spacing2,
                         ),
-                        Text("Tabish bin Tahir"),
+                        Text(
+                          "Tabish bin Tahir",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: Spacings.spacing12,
+                            color: AppColors.color777779,
+                          ),
+                        ),
                         SizedBox(
                           height: Spacings.spacing8,
                         ),
-                        Text("﹩75"),
+                        Text(
+                          "﹩75",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: Spacings.spacing20,
+                            color: AppColors.color35312D,
+                          ),
+                        ),
                         SizedBox(
                           height: Spacings.spacing12,
                         ),
                         Row(
                           children: [
-                            Icon(Icons.recycling),
+                            SvgPicture.asset(Svgs.cycle),
                             SizedBox(
                               width: Spacings.spacing6,
                             ),
-                            Text("Buy Again"),
+                            Text(
+                              "Buy Again",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: Spacings.spacing14,
+                                color: AppColors.color43B888,
+                              ),
+                            ),
                           ],
                         )
                       ],
@@ -77,15 +106,30 @@ class PurchaseFragment extends StatelessWidget {
                           borderRadius: Spacings.spacing30,
                           borderWidth: 1,
                           padding: EdgeInsets.symmetric(
-                            vertical: Spacings.spacing10,
+                            vertical: Spacings.spacing6,
                             horizontal: Spacings.spacing14,
                           ),
-                          child: Text("Edit"),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(Svgs.edit),
+                              SizedBox(
+                                width: Spacings.spacing8,
+                              ),
+                              Text(
+                                "Edit",
+                                style: TextStyle(
+                                  fontSize: Spacings.spacing14,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.color43B888,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         SizedBox(
                           height: Spacings.spacing50,
                         ),
-                        Icon(Icons.install_desktop),
+                        SvgPicture.asset(Svgs.download),
                       ],
                     )
                   ],

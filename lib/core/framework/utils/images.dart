@@ -30,4 +30,11 @@ class Svgs {
   static final String personIcon = "$_path/person-icon.svg";
   static final String addFamily = "$_path/add-family.svg";
   static final String viewFamily = "$_path/view-family.svg";
+  static final String search = "$_path/search.svg";
+  static final String bars = "$_path/bars.svg";
+  static final String mic = "$_path/microphone.svg";
+  static final String edit = "$_path/edit.svg";
+  static final String download = "$_path/download.svg";
+  static final String cycle = "$_path/cycle.svg";
+  static final String purchases = "$_path/purchases.svg";
 }

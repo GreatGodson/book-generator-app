@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assessment/core/framework/utils/colors.dart';
+import 'package:flutter_assessment/core/framework/utils/images.dart';
 import 'package:flutter_assessment/core/framework/utils/spacings.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../fragment/community_fragment.dart';
 import '../fragment/home_fragment.dart';
@@ -57,7 +59,7 @@ class _DashboardPageState extends State<DashboardPage> {
           fontSize: Spacings.spacing12,
           color: AppColors.color777779,
         ),
-        items: const [
+        items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -67,15 +69,36 @@ class _DashboardPageState extends State<DashboardPage> {
             label: 'Questions',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people),
+            icon: SvgPicture.asset(
+              Svgs.community,
+              colorFilter:
+                  ColorFilter.mode(AppColors.color777779, BlendMode.srcIn),
+            ),
+            activeIcon: SvgPicture.asset(Svgs.community),
             label: 'Community',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Purchase',
+            icon: SvgPicture.asset(
+              Svgs.purchases,
+            ),
+            activeIcon: SvgPicture.asset(
+              Svgs.purchases,
+              colorFilter: ColorFilter.mode(
+                AppColors.color43B888,
+                BlendMode.srcIn,
+              ),
+            ),
+            label: 'Purchases',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: SvgPicture.asset(Svgs.personIcon),
+            activeIcon: SvgPicture.asset(
+              Svgs.personIcon,
+              colorFilter: ColorFilter.mode(
+                AppColors.color43B888,
+                BlendMode.srcIn,
+              ),
+            ),
             label: 'Me',
           ),
         ],

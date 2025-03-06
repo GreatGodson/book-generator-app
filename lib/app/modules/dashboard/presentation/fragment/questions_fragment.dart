@@ -1,24 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assessment/app/modules/shared/presentation/components/app_container_component.dart';
 import 'package:flutter_assessment/app/modules/shared/presentation/components/button_component.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/framework/utils/colors.dart';
 import '../../../../../core/framework/utils/images.dart';
 import '../../../../../core/framework/utils/spacings.dart';
 import '../../../shared/presentation/components/text_field_component.dart';
-import 'home_fragment.dart';
 
-class QuestionsFragment extends StatelessWidget {
+class QuestionsFragment extends StatefulWidget {
   QuestionsFragment({super.key});
 
-  final List<HomeScreenItems> sliverItems = HomeScreenItems.items;
-  final List<QuestionTopicItem> questionItems = QuestionTopicItem.items;
+  @override
+  State<QuestionsFragment> createState() => _QuestionsFragmentState();
+}
+
+class _QuestionsFragmentState extends State<QuestionsFragment> {
   final List<String> questionTypes = [
     "All",
     "Parenting",
     "Educational",
     "Vocational",
   ];
+
+  String _selectedQuestionType = "All";
+
+  void updateType(String selected) {
+    _selectedQuestionType = selected;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +87,18 @@ class QuestionsFragment extends StatelessWidget {
                                 ),
                                 TextFieldComponent(
                                   hint: "Search here",
+                                  suffix: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(Svgs.bars),
+                                    ],
+                                  ),
+                                  prefix: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(Svgs.search),
+                                    ],
+                                  ),
                                 )
                               ],
                             ),
@@ -133,6 +155,9 @@ class QuestionsFragment extends StatelessWidget {
                               List.generate(questionTypes.length, (index) {
                             final item = questionTypes[index];
                             return AppContainerComponent(
+                              onTap: () {
+                                updateType(item);
+                              },
                               margin: EdgeInsets.only(
                                 right: Spacings.spacing8,
                               ),
@@ -141,13 +166,17 @@ class QuestionsFragment extends StatelessWidget {
                                 horizontal: Spacings.spacing18,
                               ),
                               borderRadius: Spacings.spacing30,
-                              color: AppColors.color43B888,
+                              color: _selectedQuestionType == item
+                                  ? AppColors.color43B888
+                                  : AppColors.colorF6F6F7,
                               child: Text(
                                 item,
                                 style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: Spacings.spacing14,
-                                  color: Colors.white,
+                                  color: _selectedQuestionType == item
+                                      ? Colors.white
+                                      : AppColors.color777779,
                                 ),
                               ),
                             );
@@ -169,18 +198,75 @@ class QuestionsFragment extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Question 1  |  Topic "),
+                            Text(
+                              "Question 1  |  Topic ",
+                              style: TextStyle(
+                                fontSize: Spacings.spacing16,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.color777779,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
                             SizedBox(
                               height: Spacings.spacing10,
                             ),
                             Text(
                               "How would you describe our family’s humour as if to a stranger?",
+                              style: TextStyle(
+                                fontSize: Spacings.spacing16,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.color35312D,
+                              ),
                             ),
                             SizedBox(
                               height: Spacings.spacing10,
                             ),
                             Row(
-                              children: [],
+                              children: [
+                                AppContainerComponent(
+                                  color: AppColors.colorF6F6F7,
+                                  borderRadius: Spacings.spacing30,
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: Spacings.spacing6,
+                                    horizontal: Spacings.spacing14,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      SvgPicture.asset(Svgs.edit),
+                                      SizedBox(
+                                        width: Spacings.spacing8,
+                                      ),
+                                      Text(
+                                        "Edit",
+                                        style: TextStyle(
+                                          fontSize: Spacings.spacing14,
+                                          fontWeight: FontWeight.w400,
+                                          color: AppColors.color43B888,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: Spacings.spacing6,
+                                ),
+                                AppContainerComponent(
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: Spacings.spacing6,
+                                    horizontal: Spacings.spacing14,
+                                  ),
+                                  color: AppColors.colorFB056C,
+                                  borderRadius: Spacings.spacing30,
+                                  child: Text(
+                                    "Delete",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: Spacings.spacing14,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             )
                           ],
                         ),
@@ -200,11 +286,25 @@ class QuestionsFragment extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                CircleAvatar(),
+                                CircleAvatar(
+                                  radius: Spacings.spacing16,
+                                  backgroundColor: Colors.white,
+                                  child: SvgPicture.asset(
+                                    Svgs.personIcon,
+                                    height: Spacings.spacing24,
+                                  ),
+                                ),
                                 SizedBox(
                                   width: Spacings.spacing10,
                                 ),
-                                Text("Tabish Bin Tahir"),
+                                Text(
+                                  "Tabish Bin Tahir",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: Spacings.spacing14,
+                                    color: AppColors.color292A2C,
+                                  ),
+                                ),
                               ],
                             ),
                             SizedBox(
@@ -212,6 +312,11 @@ class QuestionsFragment extends StatelessWidget {
                             ),
                             Text(
                               "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: Spacings.spacing14,
+                                color: AppColors.color777779,
+                              ),
                             ),
                           ],
                         ),
@@ -221,6 +326,15 @@ class QuestionsFragment extends StatelessWidget {
                       ),
                       TextFieldComponent(
                         hint: "Type here or hold mic to speak",
+                        suffix: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: AppColors.color43B888,
+                              child: SvgPicture.asset(Svgs.mic),
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: Spacings.spacing10,
@@ -245,12 +359,26 @@ class QuestionsFragment extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Question 1  |  Topic "),
+                            Text(
+                              "Question 1  |  Topic ",
+                              style: TextStyle(
+                                fontSize: Spacings.spacing16,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.color777779,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
                             SizedBox(
                               height: Spacings.spacing10,
                             ),
                             Text(
-                                "How would you describe our family’s humour as if to a stranger?"),
+                              "How would you describe our family’s humour as if to a stranger?",
+                              style: TextStyle(
+                                fontSize: Spacings.spacing16,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.color35312D,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -269,12 +397,26 @@ class QuestionsFragment extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Question 1  |  Topic "),
+                            Text(
+                              "Question 1  |  Topic ",
+                              style: TextStyle(
+                                fontSize: Spacings.spacing16,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.color777779,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
                             SizedBox(
                               height: Spacings.spacing10,
                             ),
                             Text(
-                                "How would you describe our family’s humour as if to a stranger?"),
+                              "How would you describe our family’s humour as if to a stranger?",
+                              style: TextStyle(
+                                fontSize: Spacings.spacing16,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.color35312D,
+                              ),
+                            ),
                           ],
                         ),
                       ),
