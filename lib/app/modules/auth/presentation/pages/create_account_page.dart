@@ -12,8 +12,21 @@ import 'package:flutter_assessment/core/framework/utils/images.dart';
 import '../../../../../core/framework/utils/spacings.dart';
 import '../../../dashboard/presentation/pages/dashboard_page.dart';
 
-class CreateAccountPage extends StatelessWidget {
+class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({super.key});
+
+  @override
+  State<CreateAccountPage> createState() => _CreateAccountPageState();
+}
+
+class _CreateAccountPageState extends State<CreateAccountPage> {
+  bool _agreedTerms = false;
+
+  _toggleTermsState() {
+    setState(() {
+      _agreedTerms = !_agreedTerms;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +39,9 @@ class CreateAccountPage extends StatelessWidget {
               slivers: [
                 SliverAppBar(
                   automaticallyImplyLeading: false,
-                  // toolbarHeight: 100,
-                  // pinned: true,
-                  backgroundColor: AppColors.color43B888,
+                  toolbarHeight: 20,
+                  pinned: true,
+                  backgroundColor: AppColors.color43B888.withOpacity(0.1),
                   expandedHeight: 300,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Stack(
@@ -162,10 +175,9 @@ class CreateAccountPage extends StatelessWidget {
                               scale: 1.2,
                               child: Checkbox.adaptive(
                                   activeColor: AppColors.color43B888,
-                                  value: true,
+                                  value: _agreedTerms,
                                   onChanged: (val) {
-                                    // ref.read(privacyAccepted.notifier).state =
-                                    //     val ?? false;
+                                    _toggleTermsState();
                                   }),
                             ),
                             RichText(

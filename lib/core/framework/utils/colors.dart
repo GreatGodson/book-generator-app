@@ -9,4 +9,6 @@ class AppColors {
   static Color color0E0D1E = Color(0xff0E0D1E);
   static Color color292A2C = Color(0xff292A2C);
   static Color colorF8F9FA = Color(0xffF8F9FA);
+  static Color colorE4E4EB = Color(0xffE4E4EB);
+  static Color color2FA575 = Color(0xff2FA575);
 }

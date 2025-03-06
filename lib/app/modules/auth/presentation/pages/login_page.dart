@@ -25,9 +25,9 @@ class LoginPage extends StatelessWidget {
               slivers: [
                 SliverAppBar(
                   automaticallyImplyLeading: false,
-                  toolbarHeight: 100,
+                  toolbarHeight: 20,
                   pinned: true,
-                  backgroundColor: AppColors.color43B888,
+                  backgroundColor: AppColors.color43B888.withOpacity(0.1),
                   expandedHeight: 300,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Stack(

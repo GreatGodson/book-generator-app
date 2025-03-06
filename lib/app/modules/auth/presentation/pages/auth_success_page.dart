@@ -48,7 +48,9 @@ class AuthSuccessPage extends StatelessWidget {
               ButtonComponent(
                 expanded: true,
                 text: "Continue",
-                onPressed: () {},
+                onPressed: () {
+                  onContinue();
+                },
               ),
             ],
           ),
