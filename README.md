@@ -38,9 +38,9 @@ This architecture ensures:
 |:--------------------------------------------------:|:-----------------------------------------------------------:|  
 | <img src="assets/graphics/signup.png" width="500"> | <img src="assets/graphics/forgot-password.png" width="500"> |
 
-|                    Otp Page                     |                    Reset password Page                     | 
-|:-----------------------------------------------:|:----------------------------------------------------------:|  
-| <img src="assets/graphics/otp.png" width="500"> | <img src="assets/graphics/password-reset.png" width="500"> |
+|                    Otp Page                     |                Reset password Page                | 
+|:-----------------------------------------------:|:-------------------------------------------------:|  
+| <img src="assets/graphics/otp.png" width="500"> | <img src="assets/graphics/reset.png" width="500"> |
 
 |                   Dashboard page - 1                    |                   Dashboard page - 2                    | 
 |:-------------------------------------------------------:|:-------------------------------------------------------:|  
