@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_assessment/app/modules/auth/presentation/pages/create_account_page.dart';
 import 'package:flutter_assessment/app/modules/auth/presentation/pages/forgot_password_page.dart';
 import 'package:flutter_assessment/app/modules/shared/presentation/components/button_component.dart';
@@ -45,7 +46,10 @@ class LoginPage extends StatelessWidget {
                         ),
                         Image.asset(
                           Pngs.signInLogo,
-                        ),
+                        )
+                            .animate()
+                            .fade(duration: 800.ms)
+                            .scale(delay: 500.ms, curve: Curves.easeOutBack),
                         Positioned(
                           bottom: 60,
                           left: 10,
@@ -59,7 +63,10 @@ class LoginPage extends StatelessWidget {
                                   fontSize: Spacings.spacing24,
                                   fontWeight: FontWeight.w600,
                                 ),
-                              ),
+                              )
+                                  .animate()
+                                  .slideX(begin: -1, duration: 700.ms)
+                                  .fade(delay: 400.ms),
                               SizedBox(
                                 height: Spacings.spacing10,
                               ),
@@ -91,7 +98,10 @@ class LoginPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                              ),
+                              )
+                                  .animate()
+                                  .fade(delay: 500.ms)
+                                  .slideX(begin: -0.5, duration: 600.ms),
                             ],
                           ),
                         )
@@ -126,13 +136,19 @@ class LoginPage extends StatelessWidget {
                       children: [
                         TextFieldComponent(
                           hint: "tabish@m2m.com",
-                        ),
+                        )
+                            .animate()
+                            .fade(duration: 700.ms)
+                            .slideY(begin: 0.5, duration: 600.ms),
                         SizedBox(
                           height: Spacings.spacing14,
                         ),
                         TextFieldComponent(
                           hint: "*********",
-                        ),
+                        )
+                            .animate()
+                            .fade(delay: 300.ms, duration: 700.ms)
+                            .slideY(begin: 0.5, duration: 600.ms),
                         SizedBox(
                           height: Spacings.spacing10,
                         ),
@@ -155,7 +171,10 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                           ],
-                        ),
+                        )
+                            .animate()
+                            .fade(delay: 500.ms, duration: 700.ms)
+                            .slideY(begin: 0.5, duration: 600.ms),
                         SizedBox(
                           height: Spacings.spacing20,
                         ),
@@ -167,7 +186,10 @@ class LoginPage extends StatelessWidget {
                               page: DashboardPage(),
                             );
                           },
-                        ),
+                        )
+                            .animate()
+                            .fade(delay: 600.ms, duration: 800.ms)
+                            .slideY(begin: 0.5, duration: 700.ms),
                         SizedBox(
                           height: Spacings.spacing10,
                         ),
@@ -185,7 +207,10 @@ class LoginPage extends StatelessWidget {
               fontSize: Spacings.spacing14,
               color: AppColors.color35312D,
             ),
-          ),
+          )
+              .animate()
+              .fade(delay: 700.ms, duration: 800.ms)
+              .slideY(begin: 0.5, duration: 700.ms),
           SizedBox(
             height: Spacings.spacing20,
           ),

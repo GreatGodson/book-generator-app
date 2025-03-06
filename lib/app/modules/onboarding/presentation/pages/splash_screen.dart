@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_assessment/app/modules/auth/presentation/pages/login_page.dart';
 import 'package:flutter_assessment/core/framework/navigator/navigator.dart';
 import 'package:flutter_assessment/core/framework/utils/colors.dart';
@@ -38,13 +39,18 @@ class _SplashScreenState extends State<SplashScreen> {
                   colors: [
                     AppColors.color43B888,
                     AppColors.color2FA575,
-                  ], // Gradient colors
+                  ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
               ),
-              child: Image.asset(
-                Pngs.splashIcon,
+              child: Center(
+                child: Image.asset(
+                  Pngs.splashIcon,
+                ).animate().fadeIn(duration: 1.seconds).scale(
+                    duration: 1.2.seconds,
+                    begin: Offset(0.8, 0.8),
+                    end: Offset(1, 1)),
               ),
             ),
           ),

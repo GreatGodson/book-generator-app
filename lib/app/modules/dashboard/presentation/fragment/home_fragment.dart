@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_assessment/app/modules/shared/presentation/components/app_container_component.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -32,16 +33,16 @@ class HomeFragment extends StatelessWidget {
                     alignment: Alignment.center,
                     clipBehavior: Clip.none,
                     children: [
+                      // Background Image with Fade & Subtle Scale Animation
                       Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage(
-                              Pngs.authBackground,
-                            ),
+                            image: AssetImage(Pngs.authBackground),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
+
                       Positioned(
                         bottom: 60,
                         left: 10,
@@ -50,6 +51,7 @@ class HomeFragment extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              // Title Container with Slide & Fade
                               IntrinsicWidth(
                                 child: AppContainerComponent(
                                   alignment: Alignment.center,
@@ -68,10 +70,14 @@ class HomeFragment extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: Spacings.spacing14,
-                              ),
+                              )
+                                  .animate()
+                                  .slideY(begin: 0.3, end: 0, duration: 800.ms)
+                                  .fadeIn(duration: 800.ms, delay: 300.ms),
+
+                              SizedBox(height: Spacings.spacing14),
+
+                              // Subtitle Text with Fade-in
                               Text(
                                 "Spending Time with Family",
                                 style: TextStyle(
@@ -79,10 +85,13 @@ class HomeFragment extends StatelessWidget {
                                   fontSize: Spacings.spacing22,
                                   fontWeight: FontWeight.w400,
                                 ),
-                              ),
-                              SizedBox(
-                                height: Spacings.spacing30,
-                              ),
+                              )
+                                  .animate()
+                                  .fadeIn(duration: 1.seconds, delay: 600.ms),
+
+                              SizedBox(height: Spacings.spacing30),
+
+                              // Animated Horizontal Tabs
                               SizedBox(
                                 width: double.maxFinite,
                                 child: SingleChildScrollView(
@@ -93,7 +102,6 @@ class HomeFragment extends StatelessWidget {
                                       final tab = sliverItems[index];
                                       return ClipRRect(
                                         borderRadius: BorderRadius.circular(8),
-                                        // Ensure border radius is applied
                                         child: BackdropFilter(
                                           filter: ImageFilter.blur(
                                             sigmaX: Spacings.spacing20,
@@ -116,12 +124,9 @@ class HomeFragment extends StatelessWidget {
                                             ),
                                             child: Column(
                                               children: [
-                                                SvgPicture.asset(
-                                                  tab.svgPath,
-                                                ),
+                                                SvgPicture.asset(tab.svgPath),
                                                 SizedBox(
-                                                  height: Spacings.spacing10,
-                                                ),
+                                                    height: Spacings.spacing10),
                                                 Text(
                                                   tab.title,
                                                   style: TextStyle(
@@ -135,7 +140,15 @@ class HomeFragment extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                      );
+                                      )
+                                          .animate()
+                                          .fadeIn(
+                                              duration: 800.ms,
+                                              delay: (index * 150).ms)
+                                          .slideX(
+                                              begin: 0.7,
+                                              end: 0,
+                                              duration: 1.seconds);
                                     }),
                                   ),
                                 ),
@@ -147,18 +160,21 @@ class HomeFragment extends StatelessWidget {
                     ],
                   ),
                 ),
+
+                // Animated Menu Icon in AppBar
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     CircleAvatar(
                       backgroundColor: AppColors.color43B888,
-                      child: Icon(
-                        Icons.menu,
-                        color: Colors.white,
-                      ),
-                    ),
+                      child: Icon(Icons.menu, color: Colors.white),
+                    ).animate().scale(
+                        begin: Offset(0.85, 0.85),
+                        end: Offset(1, 1),
+                        duration: 800.ms),
                   ],
                 ),
+
                 bottom: PreferredSize(
                   preferredSize: Size.fromHeight(Spacings.spacing20),
                   child: Container(
@@ -169,13 +185,11 @@ class HomeFragment extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(Spacings.spacing20),
-                        topRight: Radius.circular(
-                          Spacings.spacing20,
-                        ),
+                        topRight: Radius.circular(Spacings.spacing20),
                       ),
                       color: Colors.white,
                     ),
-                  ),
+                  ).animate().fadeIn(duration: 1.2.seconds),
                 ),
               ),
               SliverToBoxAdapter(

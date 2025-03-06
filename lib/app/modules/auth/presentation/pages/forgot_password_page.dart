@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_assessment/app/modules/auth/presentation/pages/otp_verification_page.dart';
 import 'package:flutter_assessment/app/modules/auth/presentation/pages/reset_password_page.dart';
 import 'package:flutter_assessment/app/modules/shared/presentation/components/button_component.dart';
@@ -63,7 +64,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                            ),
+                            ).animate().fade(duration: 600.ms).scale(),
                           ),
                         ),
                         Positioned(
@@ -79,7 +80,10 @@ class ForgotPasswordPage extends StatelessWidget {
                                   fontSize: Spacings.spacing24,
                                   fontWeight: FontWeight.w600,
                                 ),
-                              ),
+                              )
+                                  .animate()
+                                  .fade(duration: 800.ms)
+                                  .slideX(begin: -0.3),
                               SizedBox(
                                 height: Spacings.spacing10,
                               ),
@@ -90,7 +94,10 @@ class ForgotPasswordPage extends StatelessWidget {
                                   fontSize: Spacings.spacing14,
                                   fontWeight: FontWeight.w400,
                                 ),
-                              ),
+                              )
+                                  .animate()
+                                  .fade(duration: 900.ms)
+                                  .slideX(begin: -0.3),
                             ],
                           ),
                         )
@@ -125,7 +132,7 @@ class ForgotPasswordPage extends StatelessWidget {
                       children: [
                         TextFieldComponent(
                           hint: "tabish@m2m.com",
-                        ),
+                        ).animate().fade(duration: 1000.ms).slideY(begin: 0.3),
                         SizedBox(
                           height: Spacings.spacing14,
                         ),
@@ -143,7 +150,7 @@ class ForgotPasswordPage extends StatelessWidget {
                               ),
                             );
                           },
-                        ),
+                        ).animate().fade(duration: 1100.ms).slideY(begin: 0.3),
                         SizedBox(
                           height: Spacings.spacing24,
                         ),

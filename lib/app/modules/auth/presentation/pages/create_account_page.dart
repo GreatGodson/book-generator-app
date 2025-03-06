@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_assessment/app/modules/auth/presentation/pages/auth_success_page.dart';
 import 'package:flutter_assessment/app/modules/auth/presentation/pages/login_page.dart';
 import 'package:flutter_assessment/app/modules/auth/presentation/pages/otp_verification_page.dart';
@@ -42,7 +43,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   toolbarHeight: 20,
                   pinned: true,
                   backgroundColor: AppColors.color43B888.withOpacity(0.1),
-                  expandedHeight: 300,
+                  expandedHeight: 250,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Stack(
                       alignment: Alignment.center,
@@ -57,9 +58,6 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                             ),
                           ),
                         ),
-                        Image.asset(
-                          Pngs.signInLogo,
-                        ),
                         Positioned(
                           bottom: 60,
                           left: 10,
@@ -73,7 +71,10 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                                   fontSize: Spacings.spacing24,
                                   fontWeight: FontWeight.w600,
                                 ),
-                              ),
+                              )
+                                  .animate()
+                                  .slideX(begin: -1, duration: 700.ms)
+                                  .fade(delay: 400.ms),
                               SizedBox(
                                 height: Spacings.spacing10,
                               ),
@@ -105,7 +106,10 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                                     ),
                                   ],
                                 ),
-                              ),
+                              )
+                                  .animate()
+                                  .fade(delay: 500.ms)
+                                  .slideX(begin: -0.5, duration: 600.ms),
                             ],
                           ),
                         )
@@ -140,31 +144,46 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       children: [
                         TextFieldComponent(
                           hint: "First Name*",
-                        ),
+                        )
+                            .animate()
+                            .fade(duration: 700.ms)
+                            .slideY(begin: 0.5, duration: 600.ms),
                         SizedBox(
                           height: Spacings.spacing14,
                         ),
                         TextFieldComponent(
                           hint: "Last Name*",
-                        ),
+                        )
+                            .animate()
+                            .fade(delay: 200.ms, duration: 700.ms)
+                            .slideY(begin: 0.5, duration: 600.ms),
                         SizedBox(
                           height: Spacings.spacing14,
                         ),
                         TextFieldComponent(
                           hint: "Email*",
-                        ),
+                        )
+                            .animate()
+                            .fade(delay: 300.ms, duration: 700.ms)
+                            .slideY(begin: 0.5, duration: 600.ms),
                         SizedBox(
                           height: Spacings.spacing14,
                         ),
                         TextFieldComponent(
                           hint: "Password*",
-                        ),
+                        )
+                            .animate()
+                            .fade(delay: 400.ms, duration: 700.ms)
+                            .slideY(begin: 0.5, duration: 600.ms),
                         SizedBox(
                           height: Spacings.spacing14,
                         ),
                         TextFieldComponent(
                           hint: "Confirm Password*",
-                        ),
+                        )
+                            .animate()
+                            .fade(delay: 500.ms, duration: 700.ms)
+                            .slideY(begin: 0.5, duration: 600.ms),
                         SizedBox(
                           height: Spacings.spacing28,
                         ),
@@ -205,7 +224,10 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               ),
                             )
                           ],
-                        ),
+                        )
+                            .animate()
+                            .fade(delay: 600.ms, duration: 700.ms)
+                            .slideY(begin: 0.5, duration: 600.ms),
                         SizedBox(
                           height: Spacings.spacing20,
                         ),
@@ -231,7 +253,10 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                               ),
                             );
                           },
-                        ),
+                        )
+                            .animate()
+                            .fade(delay: 700.ms, duration: 800.ms)
+                            .slideY(begin: 0.5, duration: 700.ms),
                         SizedBox(
                           height: Spacings.spacing10,
                         ),

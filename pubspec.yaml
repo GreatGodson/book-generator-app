@@ -43,6 +43,7 @@ flutter:
   assets:
     - assets/svgs/
     - assets/pngs/
+    - assets/graphics/
 
   fonts:
     - family: Jakarta

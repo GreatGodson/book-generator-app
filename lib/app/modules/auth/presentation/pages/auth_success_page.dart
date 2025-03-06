@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_assessment/app/modules/shared/presentation/components/button_component.dart';
 import 'package:flutter_assessment/app/modules/shared/presentation/pages/app_wrapper.dart';
 import 'package:flutter_assessment/core/framework/utils/colors.dart';
@@ -29,7 +30,10 @@ class AuthSuccessPage extends StatelessWidget {
                 Icons.check_circle,
                 size: Spacings.spacing64,
                 color: AppColors.color43B888,
-              ),
+              )
+                  .animate()
+                  .fadeIn(duration: 600.ms)
+                  .slideY(begin: -0.2, end: 0, curve: Curves.easeOut),
               SizedBox(
                 height: Spacings.spacing24,
               ),
@@ -41,7 +45,10 @@ class AuthSuccessPage extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   color: AppColors.color292A2C,
                 ),
-              ),
+              )
+                  .animate()
+                  .fadeIn(duration: 800.ms, delay: 200.ms)
+                  .slideY(begin: 0.2, end: 0, curve: Curves.easeOut),
               SizedBox(
                 height: Spacings.spacing28,
               ),
@@ -51,7 +58,10 @@ class AuthSuccessPage extends StatelessWidget {
                 onPressed: () {
                   onContinue();
                 },
-              ),
+              )
+                  .animate()
+                  .fadeIn(duration: 800.ms, delay: 400.ms)
+                  .slideY(begin: 0.3, end: 0, curve: Curves.easeOut),
             ],
           ),
         )

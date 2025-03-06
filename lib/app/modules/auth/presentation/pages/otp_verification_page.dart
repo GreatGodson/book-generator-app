@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_assessment/app/modules/shared/presentation/components/button_component.dart';
 import 'package:flutter_assessment/app/modules/shared/presentation/components/pin_put_component.dart';
 import 'package:flutter_assessment/core/framework/navigator/navigator.dart';
@@ -29,7 +30,7 @@ class OtpVerificationPage extends StatelessWidget {
                   toolbarHeight: 20,
                   pinned: true,
                   backgroundColor: AppColors.color43B888.withOpacity(0.1),
-                  expandedHeight: 230,
+                  expandedHeight: 250,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Stack(
                       alignment: Alignment.bottomLeft,
@@ -66,7 +67,10 @@ class OtpVerificationPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                        ),
+                        )
+                            .animate()
+                            .fade(duration: 500.ms)
+                            .slideX(begin: -1.0, end: 0.0),
                         Positioned(
                           bottom: 60,
                           left: 10,
@@ -80,7 +84,10 @@ class OtpVerificationPage extends StatelessWidget {
                                   fontSize: Spacings.spacing24,
                                   fontWeight: FontWeight.w600,
                                 ),
-                              ),
+                              )
+                                  .animate()
+                                  .fade(duration: 700.ms)
+                                  .slideY(begin: 1.0, end: 0.0),
                               SizedBox(
                                 height: Spacings.spacing10,
                               ),
@@ -91,7 +98,10 @@ class OtpVerificationPage extends StatelessWidget {
                                   fontSize: Spacings.spacing14,
                                   fontWeight: FontWeight.w400,
                                 ),
-                              ),
+                              )
+                                  .animate()
+                                  .fade(duration: 800.ms)
+                                  .slideY(begin: 1.0, end: 0.0),
                             ],
                           ),
                         )
@@ -124,7 +134,10 @@ class OtpVerificationPage extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        PinPutComponent(),
+                        PinPutComponent()
+                            .animate()
+                            .fade(duration: 900.ms)
+                            .slideY(begin: 1.0, end: 0.0),
                         SizedBox(
                           height: Spacings.spacing30,
                         ),
@@ -134,7 +147,10 @@ class OtpVerificationPage extends StatelessWidget {
                           onPressed: () {
                             onSuccess();
                           },
-                        ),
+                        )
+                            .animate()
+                            .fade(duration: 1000.ms)
+                            .slideY(begin: 1.0, end: 0.0),
                         SizedBox(
                           height: Spacings.spacing24,
                         ),
@@ -161,7 +177,10 @@ class OtpVerificationPage extends StatelessWidget {
                                   )
                                 ],
                               ),
-                            ),
+                            )
+                                .animate()
+                                .fade(duration: 1100.ms)
+                                .slideY(begin: 1.0, end: 0.0),
                           ],
                         ),
                       ],
